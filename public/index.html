@@ -55,51 +55,11 @@
             </div>
         </div>
 
-        <!-- TODO LIST -->
-        <div id="todo-list" class="row">
-            <div class="col-sm-4 offset-sm-4">
-                <!-- LOOP OVER THE TODOS IN $scope.todos -->
-                <div class="text-center" ng-repeat="todo in todos">
-                    <label>
-                        <span ng-if="!editMode[$index]"> {{ todo.text }} </span>
-                        <span ng-if="editMode[$index]">
-                            <form>
-                                <input
-                                    type="text"
-                                    class="form-control text-center"
-                                    ng-model="updateData[$index].text"
-                                />
-                            </form>
-                            <br />
-                            <button
-                                type="submit"
-                                class="btn btn-success"
-                                ng-click="updateTodo(todo._id, $index); editMode[$index]=false"
-                            >
-                                Save
-                            </button>
-                        </span>
-                        <button
-                            class="btn btn-warning"
-                            ng-click="setUpdateText(todo.text, $index); editMode[$index] = true"
-                        >
-                            Edit
-                        </button>
-                        <button
-                            class="btn btn-danger"
-                            ng-click="deleteTodo(todo._id);"
-                        >
-                            Delete
-                        </button>
-                    </label>
-                </div>
-            </div>
-        </div>
-
         <!-- FORM TO CREATE TODOS -->
         <div id="todo-form" class="row">
             <div class="col-sm-8 offset-sm-2 text-center">
                 <form>
+                        
                     <div class="form-group">
                         <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
                         <input
@@ -119,6 +79,63 @@
                         Add
                     </button>
                 </form>
+            </div>
+        </div>
+        <br />
+        <!-- TODO LIST -->
+        <div id="todo-list" class="row">
+            <div class="col-sm-4 offset-sm-4 table-responsive">
+                    <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Task</th>
+                                <th scope="col">Functionalities</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- LOOP OVER THE TODOS IN $scope.todos -->
+                <tr class="text-center" ng-repeat="todo in todos">
+                        <td ng-if="!editMode[$index]"> {{ todo.text }} </span>
+                        <td ng-if="editMode[$index]">
+                            <form>
+                                <input
+                                    type="text"
+                                    class="form-control text-center"
+                                    ng-model="updateData[$index].text"
+                                />
+                            </form>
+                        </td>
+                        <td ng-if="editMode[$index]">
+                                <button
+                                type="submit"
+                                class="btn btn-success"
+                                ng-click="updateTodo(todo._id, $index); editMode[$index]=false"
+                            >
+                                Save
+                            </button>
+                        </td>
+                        <td>
+                                <button
+                                class="btn btn-warning"
+                                ng-click="setUpdateText(todo.text, $index); editMode[$index] = true"
+                            >
+                                Edit
+                            </button>
+                        </td>
+                        <td>
+                                <button
+                                class="btn btn-danger"
+                                ng-click="deleteTodo(todo._id);"
+                            >
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                            </tbody>
+                          </table>
+                </div>
             </div>
         </div>
     </body>
