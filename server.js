@@ -114,4 +114,4 @@ app.get("/", function(req, res) {
 
 // listen
 app.listen(8080);
-console.log("App listening on port 8080!");
+console.log("App is live on http://localhost:8080!");
