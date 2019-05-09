@@ -1,3 +1,3 @@
 # ToDo App
 
-Practice app for MEANjs stack - Mongo Express AngularJS NodeJS
+AngularJS template app for learning the MEANjs stack - Mongo Express AngularJS NodeJS
